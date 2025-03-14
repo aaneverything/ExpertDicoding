@@ -16,6 +16,11 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+        buildConfigField(
+            "String",
+            "TMDB_API_KEY",
+            "\"${project.findProperty("TMDB_API_KEY") ?: "8a1080ea3c427b8e7fadd3e01098189b"}\""
+        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,6 +42,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
@@ -48,34 +54,32 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
+    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(libs.koin.androidx.compose)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    implementation ("androidx.navigation:navigation-compose:2.8.8")
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
     implementation(libs.material)
     // impoer recylcer view
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation(libs.glide)
-
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
     androidTestImplementation(libs.room.testing)
-
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
-
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.room.ktx)
     //impoer livedata
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
-
     implementation(libs.koin.android)
 }

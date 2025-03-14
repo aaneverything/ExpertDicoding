@@ -3,12 +3,10 @@ package com.aantrvn.expert1.core.data.source.remote.response
 import com.google.gson.annotations.SerializedName
 
 data class ListMovieResponse(
-    @field:SerializedName("error")
-    val error: Boolean,
 
-    @field:SerializedName("message")
-    val message: String,
+    @SerializedName("page")
+    val page: Int,
 
-    @field:SerializedName("movies")
-    val movies: List<MovieResponse>
+    @SerializedName("results")
+    val results: List<MovieResponse>
 )

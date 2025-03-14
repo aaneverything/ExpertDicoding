@@ -20,7 +20,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             Expert1Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    MovieApp(
+                        modifier = Modifier.padding(innerPadding),
 
+                    )
                 }
             }
         }
